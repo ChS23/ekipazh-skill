@@ -1,0 +1,42 @@
+[
+  {
+    "query": "Я консультант по продажам, хочу чтобы ты настроился под мой бизнес и вел базу локально.",
+    "should_trigger": true
+  },
+  {
+    "query": "Папка пустая, помоги заполнить её под мой бизнес.",
+    "should_trigger": true
+  },
+  {
+    "query": "Напиши пост про новую услугу, но в моём стиле.",
+    "should_trigger": true
+  },
+  {
+    "query": "Клиент сказал, что дорого. Как ответить?",
+    "should_trigger": true
+  },
+  {
+    "query": "Запомни, я никогда не использую слово инновационный.",
+    "should_trigger": true
+  },
+  {
+    "query": "Сделай агента для Telegram-постов, я это постоянно делаю.",
+    "should_trigger": true
+  },
+  {
+    "query": "Проверь, всё ли сходится в моей базе бизнеса.",
+    "should_trigger": true
+  },
+  {
+    "query": "Исправь TypeScript ошибку в компоненте React.",
+    "should_trigger": false
+  },
+  {
+    "query": "Сколько сейчас времени?",
+    "should_trigger": false
+  },
+  {
+    "query": "Сконвертируй JSON в YAML.",
+    "should_trigger": false
+  }
+]
