@@ -90,6 +90,11 @@ python3 ~/.agents/skills/ekipazh/scripts/bootstrap_workspace.py /tmp/ekipazh-boo
 - `Skill is valid!`
 - в тестовой папке созданы профиль, база, решение о тоне и `агенты/README.md`
 
+Ручные сценарии:
+
+- [Use Cases](evals/use-cases.md) — отдельные маршруты: старт, статус, анализ, правила, посты, КП, возражения, формат, агенты, валидация
+- [Full Path Acceptance Test](evals/full-path.md) — полный путь от пустой папки до handoff для будущих агентов
+
 ## Лицензия
 
 MIT
