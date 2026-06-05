@@ -1,6 +1,6 @@
 ---
 name: ekipazh
-description: "Use this skill when a Russian-speaking solo entrepreneur, expert, freelancer, or self-employed professional wants an AI operator to bootstrap and maintain a local Markdown business workspace: capture business context, build profile/style/state files, analyze audience and competitors, formalize rules, write posts, prepare proposals, answer objections, update knowledge, and create local agent or mini-skill specs for repeated workflows."
+description: "Use this skill when a Russian-speaking solo entrepreneur, expert, freelancer, or self-employed professional wants an AI operator to bootstrap and maintain a local Markdown business workspace: capture business context, build profile/style/state files, analyze audience and competitors, formalize rules, write posts, prepare proposals, answer objections, format artifacts as PDFs, update knowledge, and create local agent or mini-skill specs for repeated workflows."
 ---
 
 # Экипаж
@@ -58,6 +58,7 @@ description: "Use this skill when a Russian-speaking solo entrepreneur, expert, 
 | “запомни”, “я всегда делаю так”, “это не мой стиль” | Rule capture: [rules](references/rules.md) |
 | “напиши пост”, “контент”, “идея для поста” | Content: [content](references/content.md) |
 | “сделай КП”, “предложение”, “клиент сказал дорого”, “как ответить” | Sales: [sales](references/sales.md) |
+| “сделай PDF”, “оформи красиво”, “для клиента”, “распечатать” | Format: [format](references/format.md) |
 | “сделай агента”, “автоматизируй процесс”, “часто делаю это” | Agent factory: [agents](references/agents.md) |
 | “проверь”, “всё ли сходится”, “готово ли” | Validation: [validation](references/validation.md) |
 

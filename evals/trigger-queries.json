@@ -24,6 +24,10 @@
     "should_trigger": true
   },
   {
+    "query": "Оформи это КП как PDF для клиента.",
+    "should_trigger": true
+  },
+  {
     "query": "Проверь, всё ли сходится в моей базе бизнеса.",
     "should_trigger": true
   },
