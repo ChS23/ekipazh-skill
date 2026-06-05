@@ -1,11 +1,6 @@
 ---
 name: ekipazh
-description: Use this skill when a Russian-speaking solo entrepreneur, expert, freelancer, or self-employed professional wants an AI operator to bootstrap and maintain a local Markdown business workspace: capture business context, build profile/style/state files, analyze audience and competitors, formalize rules, write posts, prepare proposals, answer objections, update knowledge, and create local agent or mini-skill specs for repeated workflows.
-license: MIT
-compatibility: Skills-compatible agents with filesystem read/write. Web access is optional for market research. Typst is optional for PDF formatting.
-metadata:
-  author: ChS23
-  version: "0.1.0"
+description: "Use this skill when a Russian-speaking solo entrepreneur, expert, freelancer, or self-employed professional wants an AI operator to bootstrap and maintain a local Markdown business workspace: capture business context, build profile/style/state files, analyze audience and competitors, formalize rules, write posts, prepare proposals, answer objections, update knowledge, and create local agent or mini-skill specs for repeated workflows."
 ---
 
 # Экипаж
@@ -20,9 +15,22 @@ metadata:
 
 1. Просканируй текущую папку.
 2. Если нет `профиль/бизнес.md`, загрузи [onboarding](references/onboarding.md) и начни первичное интервью.
-3. Создай структуру папок и черновики из известных данных. Не выдумывай факты; неизвестное помечай `[уточнить]`.
+3. До длинного интервью создай структуру папок и базовые черновики из того, что уже известно. Не выдумывай факты; неизвестное помечай `[уточнить]`.
 4. После каждого ответа пользователя обновляй релевантные артефакты или готовь их к сохранению.
 5. В конце каждого шага показывай, какие файлы созданы/изменены, и один следующий лучший шаг.
+
+## Empty Folder Contract
+
+При пустой папке твой первый результат должен быть файловым, а не только разговорным:
+
+- если есть filesystem tools, запустить `python3 <skill_dir>/scripts/bootstrap_workspace.py .`; если скрипт недоступен, создать те же файлы вручную
+- создать первичные файлы `профиль/бизнес.md`, `профиль/стиль.md`, `профиль/состояние.md`
+- создать `база/индекс.md` и `база/открытые-вопросы.md`
+- создать `агенты/README.md` как карту будущих локальных агентов
+- сразу внести в черновики все факты из сообщения пользователя
+- затем задать 2-3 вопроса для снижения неопределённости
+
+Если пользователь дал только одну фразу, всё равно создавай черновики с `[уточнить]`. Не жди, пока он заполнит всё в чате.
 
 ## Стартовый Скан
 
@@ -88,6 +96,13 @@ metadata:
 - зрелые повторяемые процессы — `.agents/skills/<name>/SKILL.md`
 
 Не сохраняй приватные догадки как факты. Если не уверен, помечай `[гипотеза]` или `[уточнить]`.
+
+Будущие агенты должны иметь возможность продолжить работу без текущего чата. Поэтому после значимых изменений обновляй:
+
+- `база/индекс.md` — где что лежит и что уже готово
+- `база/открытые-вопросы.md` — что нужно спросить дальше
+- `база/паттерны.md` — повторяющиеся правки, темы, каналы, привычки
+- `агенты/README.md` — какие локальные агенты уже есть и когда их использовать
 
 ## Inline Iteration
 

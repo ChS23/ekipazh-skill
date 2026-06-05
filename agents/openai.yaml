@@ -1,0 +1,7 @@
+interface:
+  display_name: "Экипаж"
+  short_description: "Локальная база бизнеса и AI-оператор"
+  default_prompt: "Используй $ekipazh, чтобы завести локальную базу бизнеса в пустой папке и вести меня по процессу."
+
+policy:
+  allow_implicit_invocation: true
