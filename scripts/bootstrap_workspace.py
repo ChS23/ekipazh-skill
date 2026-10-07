@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+import shutil
+import subprocess
 from datetime import date
 from pathlib import Path
 
@@ -238,6 +240,41 @@ sources:
 """
 
 
+def agents_md() -> str:
+    return f"""# Папка бизнеса
+
+Рабочая папка бизнеса: [уточнить: название и сфера]. Её ведёт Экипаж — навык `.agents/skills/ekipazh` (или установленный у пользователя). Создано {today()}.
+
+## Как работать здесь
+
+- Любую задачу по бизнесу веди через Экипаж: он знает структуру папки, процессы и правила.
+- Говори по-русски, на «ты», коротко и по делу. Тон — в `профиль/стиль.md`.
+- Сначала читай `профиль/`, `правила/`, `решения/` и `база/индекс.md`, потом отвечай. Не выдумывай факты: неизвестное — `[уточнить]`.
+- Всё, что меняется со временем — цены, законы и налоги, площадки и их правила, конкуренты, возможности ИИ, — проверяй поиском в интернете и пиши источник с датой. Нет интернета — помечай `[проверить актуальность]`.
+- Персональные данные клиентов в папку не записывай: ни имён, ни телефонов, ни переписки. Только обобщённо.
+- После законченного шага — коммит с понятным сообщением по-русски. «Сохрани» — коммит, «отправь» — коммит и `git push`.
+
+## Где что лежит
+
+- `профиль/` — бизнес, стиль, состояние, распаковка
+- `правила/` — как пользователь любит делать, оформлено после повторяющихся правок
+- `решения/` — принятые решения с причинами
+- `контент/` — посты, КП, ответы на возражения
+- `база/` — факты, термины, открытые вопросы, индекс
+- `агенты/` и `.agents/skills/` — локальные помощники для повторяемых задач
+"""
+
+
+def ensure_git(workspace: Path) -> str:
+    """Папка под git — чтобы любой шаг можно было сохранить и отправить. Уже репозиторий — не трогаем."""
+    if (workspace / ".git").exists():
+        return "git: уже репозиторий"
+    if shutil.which("git") is None:
+        return "git: не установлен — сохранение коммитами недоступно"
+    result = subprocess.run(["git", "init", "-q"], cwd=workspace, capture_output=True, text=True)
+    return "git: репозиторий создан" if result.returncode == 0 else f"git: не удалось создать ({result.stderr.strip()})"
+
+
 def bootstrap(workspace: Path) -> tuple[list[Path], list[Path]]:
     workspace = workspace.resolve()
     created: list[Path] = []
@@ -257,6 +294,7 @@ def bootstrap(workspace: Path) -> tuple[list[Path], list[Path]]:
         "база/открытые-вопросы.md": open_questions_md(),
         "база/паттерны.md": patterns_md(),
         "агенты/README.md": agents_readme(),
+        "AGENTS.md": agents_md(),
     }
 
     for relative_path, content in files.items():
@@ -271,6 +309,7 @@ def main() -> None:
     args = parser.parse_args()
 
     created, skipped = bootstrap(Path(args.workspace))
+    print(ensure_git(Path(args.workspace).resolve()))
     print("created:")
     for path in created:
         print(f"- {path}")

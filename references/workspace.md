@@ -5,10 +5,13 @@
 ## Canonical Structure
 
 ```text
+AGENTS.md
+
 профиль/
   бизнес.md
   стиль.md
   состояние.md
+  распаковка.md
 
 анализ/
   рынок.md
