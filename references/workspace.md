@@ -48,6 +48,9 @@ AGENTS.md
   README.md
   агент-*.md
 
+сайт/
+  # сайты, лендинги, калькуляторы — только файлами; Sites в ChatGPT не используем
+
 .agents/
   skills/
     <workflow-name>/
